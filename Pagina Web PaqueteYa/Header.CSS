@@ -1,0 +1,531 @@
+/* ========== Variables de color ========== */
+:root {
+    --Color-1: #292929; /* Fondo principal */
+    --Color-2: #ffffff; /* Color texto blanco */
+    --Color-3: #000000; /* Negro */
+    --Color-4: #F87A35; /* Morado degradado 1 */
+    --Color-5: #F87A35; /* Morado degradado 2 */
+    --Color-6: #464646; /* Gris claro */
+}
+
+/* ========== Reset y estilos base ========== */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* ========== Header ========== */
+header {
+    display: flex;
+    width: 100%;
+    height: 12.5vh;
+
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    color: var(--Color-2);
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+
+    background-color: var(--Color-1);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.60);
+
+    justify-content: space-around;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    user-select: none;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+}
+
+/* ========== Logo en header ========== */
+.HEADER_LOGO {
+    display: flex;
+    width:auto;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.HEADER_LOGO a{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.HEADER_LOGO img {
+    width: auto;
+    height: 80%;
+}
+
+/* ========== Navegación principal ========== */
+.Nav {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+#Gradient{
+    display: flex;
+    width: auto;
+    height: auto;
+}
+
+.Menu {
+    display: flex;
+    width: 100%;
+}
+
+/* ========== Opciones del menú ========== */
+.Option-Menu {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    position: relative;
+    background-color: var(--Color-1);
+}
+.Option-Menu a {
+    font-size: 100%;
+    width: auto;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.5vw;
+    color: var(--Color-2);
+    text-decoration: none;
+    user-select: none;
+}
+.Option-Menu a:hover {
+    background: linear-gradient(270deg, var(--Color-4), var(--Color-5), var(--Color-4));
+    background-size: 300% 600%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animarGradient 6s ease infinite;
+}
+
+/* Iconos para desplegables */
+i[class='bx bx-caret-down'], i[class='bx bx-caret-right'] {
+    display: none;
+}
+.Option-Menu.Hover > a > i[class='bx bx-caret-up'] {
+    display: none;
+}
+.Option-Menu.Hover > a > i[class='bx bx-caret-down'],
+.Option-Menu.Hover > a > i[class='bx bx-caret-right'] {
+    display: inline;
+}
+i[class='bx bx-pulse']{
+    display: none;
+}
+/* ========== Submenús ========== */
+.Sup-Menu {
+    width: auto;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    min-width: max-content;
+}
+
+.Sup-Sup-Menu {
+    width: auto;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+    min-width: max-content;
+    border-left: 4px solid;
+    border-image: linear-gradient(to bottom, var(--Color-4), var(--Color-5)) 1;
+}
+
+/* Mostrar submenús al hacer hover o desplegar */
+.Option-Menu.Hover .Sup-Menu,
+.Option-Menu.Hover > .Sup-Sup-Menu {
+    display: flex;
+}
+
+/* ========== Login Header ========== */
+.HEADER_LOG, .HEADER_LOG2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: auto;
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+}
+.HEADER_LOG, p > a {
+    font-size:100%;
+    text-decoration: none;
+    color: var(--Color-2);
+}
+
+.HEADER_LOG2 {
+    display: none;
+}
+.HEADER_LG {
+    background: linear-gradient(270deg, var(--Color-4), var(--Color-5), var(--Color-4));
+    background-size: 300% 600%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animarGradient 6s ease infinite;
+}
+
+/* ========== Botones menú hamburguesa ========== */
+#Cerrar_Menu {
+    display: none;
+    width: 100%;
+    height: 35px;
+    font-size: 100%;
+    font-weight: bold;
+    background-color: var(--Color-1);
+    border: none;
+    border-bottom: 1px solid var(--Color-6);
+    cursor: pointer;
+}
+#Cerrar_Menu i, #Boton_Menu i {
+    color: var(--Color-2);
+}
+#Boton_Menu {
+    display: none;
+    width: 15%;
+    height: 100%;
+    font-size: 100%;
+    font-weight: bold;
+    background-color: var(--Color-1);
+    border: none;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+
+
+
+.scroll-top-btn {
+    display: flex;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(270deg, var(--Color-4), var(--Color-5), var(--Color-4));
+    background-size: 300% 600%;
+    animation: animarGradient 6s ease infinite;
+    color: white;
+    border-radius: 50px;
+    padding: 1rem;
+    border: none;
+    font-size: 200%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: 999;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+  
+    animation: flotar 3s ease-in-out infinite;
+    cursor: pointer;
+}
+.scroll-top-btn:hover {
+    transform: scale(1.1);
+}
+
+.scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes flotar {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes animarGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+footer{
+    display: flex;
+    width: 100vw;
+    height: auto;
+
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+
+    color: var(--Color-2);
+    background-color: var(--Color-1);
+    user-select: none;
+    position: relative;
+}
+footer div{
+    display: flex;
+    width: 100%;
+    height: 90%;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.foote_Secion_Cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    font-size: 100%;
+}
+.foote_Secion_Cont ul li{
+    list-style: none;
+}
+.foote_Secion_Cont ul li a{
+    background: linear-gradient(270deg, var(--Color-4), var(--Color-5), var(--Color-4));
+    background-size: 300% 600%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animarGradient 6s ease infinite;
+}
+.foote_Secion_Log{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+.foote_Secion_Log a{
+    font-size: 150%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(270deg, var(--Color-4), var(--Color-5), var(--Color-4));
+    background-size: 300% 600%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animarGradient 6s ease infinite;
+}
+.foote_Secion_Log div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.foote_Secion_Log img{
+    width: 40%;
+    height: auto;
+}
+.Map{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* ========== Media Query para pantallas pequeñas (móvil) ========== */
+@media screen and (max-width: 730px) {
+    *{
+        scroll-margin-top: 0px;
+    }
+    #Boton_Menu {
+        display: block;
+    }
+  
+    .Nav {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        width: 35%;
+        align-items: flex-start;
+        background-color: var(--Color-1);
+    }
+    #Gradient{
+        display: none;
+        justify-content: flex-end;
+        align-items: start;
+        width: 100%;
+        height: 100%;
+        background-color: #0e0e0e60;
+        
+    }
+
+    /* Mostrar nav y botón cerrar cuando activo */
+    .Nav.activo,
+    #Cerrar_Menu.activo {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+
+    }
+    #Gradient.active{
+        display: flex;
+    }
+
+    /* Ocultar botón de menú cuando está activo */
+    #Boton_Menu.oculto {
+        display: none;
+    }
+
+    /* Ajustes del header */
+    header{
+        box-shadow: none;
+        width: 100%;
+        height: 10%; /* o el valor que usas en pantallas grandes */
+        overflow: hidden; /* evita que crezca más allá de su contenedor */
+        align-items: flex-start;
+        justify-content: flex-end;
+        background-color: transparent;
+    }
+
+    /* Ajustes para menú y submenús */
+    .Menu {
+        flex-direction: column;
+    }
+
+    /* Submenús en móvil se vuelven relativos y visibles solo si están activos */
+    .Sup-Menu {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        position: relative;
+        top: 100%;
+        left: 0;
+        border-bottom: 2px solid var(--Color-6);
+        background-color: #5104ec;
+    }
+
+    .Option-Menu a {
+        width: 100%;
+        padding-left: 20px;
+        justify-content: flex-start;
+        border-bottom: 1px solid var(--Color-6);
+    }
+    .Option-Menu.Desplegar a {
+        border: none;
+        background-color: var(--Color-1);
+    }
+    .Option-Menu.Desplegar .Sup-Menu {
+        display: block;
+    }
+    .Option-Menu .Sup-Menu a {
+        border: none;
+        text-align: start;
+    }
+
+    /* Iconos para desplegables en móvil */
+    .Option-Menu.Desplegar > a > i[class='bx bx-caret-up'] {
+        display: none;
+    }
+    .Option-Menu.Desplegar > a > i[class='bx bx-caret-down'] {
+        display: inline;
+    }
+    .Sup-Menu .Option-Menu > a > i[class='bx bx-caret-up'] {
+        display: none;
+    }
+    i[class='bx bx-pulse']{
+        display: inline;
+    }
+
+    /* Ajustes login en móvil */
+    .HEADER_LOG2 {
+        width: 100%;
+        height: 20px;
+        padding: 20px;
+        justify-content: center;
+        display: flex;
+        border-bottom: 1px solid var(--Color-6);
+    }
+    .HEADER_LOG {
+        display: none;
+
+    }
+    .HEADER_LOGO {
+        display: none;
+    }
+    #Header {
+        height: 10vh;
+        transition: height 0.1s ease;
+        overflow: hidden;
+    }
+
+    /* Clase cuando está expandido */
+    #Header.expandido {
+        height: 100vh;
+    }
+
+
+    footer div{
+        flex-direction: column;
+    }
+    .foote_Secion_Cont{
+        width: 70%;
+        font-size: 80%;
+    }
+    .foote_Secion_Cont ul li{
+        list-style: none;
+    }
+    .foote_Secion_Log{
+        width: 70%;
+        height: 50%;
+    }
+    .foote_Secion_Log img{
+        width: 40%;
+        height: auto;
+    }
+    .Map{
+        width: 70%;
+        height: 50%;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        
+    }
+    .foote_Secion_Log div{
+        display: flex;
+        flex-direction: row;
+    }
+}
